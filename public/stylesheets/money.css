@@ -1,0 +1,44 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#container {
+  width: 960px;
+  margin: 5px auto;
+}
+
+#header {
+  background-color: #ddd;
+}
+
+#content {
+  background-color: #e6e6e6;
+  float: right;
+  width: 720px;
+}
+
+#menu {
+  background-color: #ccc;
+  float: left;
+  width: 230px;
+}
+
+#footer {
+  clear: both;
+  background-color: #bbb;
+}
+
+#notice {
+    border: 1px solid #f7b910;
+    padding: 4px;
+    background-color: #fad163;
+    font-weight: bold;
+}
+
+#error {
+    border: 1px solid #EC0330;
+    padding: 4px;
+    background-color: #fc4d4d;
+    font-weight: bold;
+}
