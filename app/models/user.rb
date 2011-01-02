@@ -15,16 +15,38 @@ class User < ActiveRecord::Base
 
   validates_presence_of     :email
   validates_length_of       :email,    :within => 6..100 #r@a.wk
-  #validates_uniqueness_of   :email
+  validates_uniqueness_of   :email
   validates_format_of       :email,    :with => Authentication.email_regex, :message => Authentication.bad_email_message
+
+  has_many :entries, :dependent => :destroy
 
   before_create :make_activation_code 
 
   # HACK HACK HACK -- how to do attr_accessible from here?
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
-  attr_accessible :login, :email, :name, :password, :password_confirmation
+  attr_accessible :login, :email, :name, :password, :password_confirmation, :password_reset_code
+  
+  #重置密码
+  def forgot_password
+    @forgotten_password = true
+    self.make_password_reset_code
+  end
 
+  def reset_password
+    # First update the password_reset_code before setting the
+    # reset_password flag to avoid duplicate email notifications.
+    update_attributes(:password_reset_code => nil)
+    @reset_password = true
+  end
+
+  def recently_forgot_password?
+    @forgotten_password
+  end
+
+  def recently_reset_password?
+    @reset_password
+  end
 
   # Activates the user in the database.
   def activate!
@@ -66,11 +88,15 @@ class User < ActiveRecord::Base
 
   protected
     
-
-    def make_activation_code
+  #激活码
+  def make_activation_code
   
-      self.activation_code = self.class.make_token
-    end
+    self.activation_code = self.class.make_token
+  end
+  #重置码
+  def make_password_reset_code
+    self.password_reset_code = Digest::SHA1.hexdigest( Time.now.to_s.split(//).sort_by {rand}.join )
+  end
 
 
 end

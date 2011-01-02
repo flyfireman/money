@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>Date</th>
     <th>Amount</th>
     <th>Tags</th>
     <th>Comment</th>
@@ -9,6 +10,7 @@
 
 <% @records.each do |entry| %>
   <tr>
+    <td><%=h entry.effective_date_at %></td>
     <td><%=h entry.amount %></td>
     <td><%=h entry.tags %></td>
     <td><%=h entry.comment %></td>

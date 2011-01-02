@@ -1,6 +1,6 @@
 <h1>欢迎来到Mar's Shoes的财务平台</h1>
 <%#= link_to "All Entries", entries_path %>
-
+<%= flash[:notice] %>
 <% if logged_in? %>
   <p><strong>You are logged in as <%=h current_user.login %></strong></p>
   <p><%= link_to 'Logout', logout_path %></p>

@@ -4,6 +4,11 @@
   <%= f.error_messages %>
 
   <p>
+    <%= f.label :effective_date_at %><br />
+    <%= f.text_field :effective_date_at %>
+  </p>
+  
+  <p>
     <%= f.label :amount %><br />
     <%= f.text_field :amount %>
   </p>
@@ -21,4 +26,4 @@
 <% end %>
 
 <%#= link_to 'Show', @record %> 
-<%= link_to 'Back', entries_path %>
+<%= link_to '返回', entries_path %>
