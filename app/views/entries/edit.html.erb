@@ -4,17 +4,18 @@
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :effective_date_at %><br />
-    <%= f.text_field :effective_date_at %>
+    <%= t(:effective_date_T) %><br />
+    <%= f.date_select :effective_date_at %>
   </p>
-  
+
+
   <p>
     <%= f.label :amount %><br />
     <%= f.text_field :amount %>
   </p>
   <p>
-    <%= f.label :tags %><br />
-    <%= f.text_field :tags %>
+    <%= f.label :tag_list %><br />
+    <%= f.text_field :tag_list %>
   </p>
   <p>
     <%= f.label :comment %><br />

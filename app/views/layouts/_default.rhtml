@@ -1,0 +1,13 @@
+<div id="boider">
+  <div id="content">
+    <p style="color: green"><%= flash[:notice] %></p>
+
+    <%= yield %>
+  </div>
+
+  <div id="sidebar">
+    <ul>
+      <li><%= link_to 'All entries', entries_path %></li>
+    </ul>
+  </div>
+</div>
