@@ -1,8 +1,20 @@
-<h1>Listing entries</h1>
+<h1>记账列表</h1>
 <%= link_to "<img src='/images/feedback/feedback_tab.png', :alt = 'FeedBack'>", new_feedback_path %>
 <%= feedback_tab(:position => 'top') %>
 
-
+<% form_tag entries_path, :method => 'get' do %>
+<p>
+  <b>金额</b><%= text_field_tag :s, params[:s] %>
+  <%= submit_tag "Search", :amount => nil %>
+</p>
+<% end %>
+<%= "----------------我是淫荡的分割线-------------------" %>
+<h1>
+Total entries: <%= @records.total_entries %>|
+Total pages: <%= @records.total_pages %>|
+Current page: <%= @records.current_page %>
+</h1>
+<%= will_paginate @records %>
 <table>
   <thead>
     <tr>
@@ -10,6 +22,7 @@
       <th class="center">Amount</th>
       <th class="center">tag_list</th>
       <th class="center">Comment</th>
+      <th class="center"></th>
     </tr>
   </thead>
   <tbody>
@@ -26,8 +39,12 @@
         </td>
       </tr>
     <% end %>
+    
   </tbody>
+
+
 </table>
+<%= will_paginate @records %>
 
 <br />
 
