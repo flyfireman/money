@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.feedback 'feedbacks', :controller => 'feedbacks', :action => 'create'
+  map.new_feedback 'feedbacks/new', :controller => 'feedbacks', :action => 'new'
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
   map.register '/register', :controller => 'users', :action => 'create'
