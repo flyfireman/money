@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   validates_format_of       :email,    :with => Authentication.email_regex, :message => Authentication.bad_email_message
 
   has_many :entries, :dependent => :destroy
-
+  has_many :events
   before_create :make_activation_code 
 
   # HACK HACK HACK -- how to do attr_accessible from here?

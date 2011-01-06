@@ -31,7 +31,7 @@ Current page: <%= @records.current_page %>
         <td class="center"><%=h entry.effective_date_at %></td>
         <td class="right"><%=h entry.amount %></td>
         <td><%=h entry.tag_list %></td>
-        <td><%=h entry.comment %></td>
+        <td><%= entry.comment %></td>
 
         <td class="center">
           <%= link_to 'Edit', edit_entry_path(entry) %>

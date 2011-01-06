@@ -1,0 +1,18 @@
+<h1>Listing events</h1>
+
+<table>
+<% @records.each do |event| %>
+  <ul>
+    <h3><%=h event.title %></h3>
+    <li>发布于<%=h event.due_date_at %></li>
+    <li><%= truncate event.description,:length => 250,:omission => "……#{link_to '全文',event}"  %></li>
+    <li><%= link_to 'Show', event %>|
+    <%= link_to 'Edit', edit_event_path(event) %>|
+    <%= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete %></li>
+  </ul>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New event', new_event_path %>

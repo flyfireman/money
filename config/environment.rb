@@ -49,9 +49,11 @@ Rails::Initializer.run do |config|
   # Run "rake -D time" for a list of tasks for finding time zone names.
   config.time_zone = 'UTC'
   config.active_record.observers = :user_observer
+  config.action_view.sanitized_allowed_tags = %w(table tr td span br strong em p sub sup img object param ul li ol)
+  config.action_view.sanitized_allowed_attributes = %w(font id class style border src width height data type name value)
 
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
 end
- #ExceptionNotification::Notifier.exception_recipients = %w(yangxiwenhuail@gmail.com)
+#ExceptionNotification::Notifier.exception_recipients = %w(yangxiwenhuail@gmail.com)
