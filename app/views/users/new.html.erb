@@ -16,5 +16,10 @@
 <p><%= label_tag 'password_confirmation', 'Confirm Password' %><br/>
 <%= f.password_field :password_confirmation %></p>
 
+<p>验证码</p>
+<%#= show_simple_captcha(:object => "user") %>
+<%= show_simple_captcha(:object => 'user', :code_type => 'numeric', :image_style => 'all_black', :distortion => 'low',:label => "(请正确输入图片中的数字?)") %>
+
+
 <p><%= submit_tag 'Sign up' %></p>
 <% end -%>

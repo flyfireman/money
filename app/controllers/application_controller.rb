@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
   #include ExceptionNotifiable
   include AuthenticatedSystem
+  #验证码
+  include SimpleCaptcha::ControllerHelpers
   
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details

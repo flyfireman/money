@@ -1,6 +1,6 @@
 <h1>Editing event</h1>
 
-<% form_for(@record) do |f| %>
+<% form_for(@event) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -25,5 +25,5 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @record %> |
+<%= link_to 'Show', @event %> |
 <%= link_to 'Back', events_path %>

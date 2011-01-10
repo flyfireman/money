@@ -1,0 +1,22 @@
+<h1>Listing caps</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+  </tr>
+
+<% @caps.each do |cap| %>
+  <tr>
+    <td><%=h cap.title %></td>
+    <td><%=h cap.body %></td>
+    <td><%= link_to 'Show', cap %></td>
+    <td><%= link_to 'Edit', edit_cap_path(cap) %></td>
+    <td><%= link_to 'Destroy', cap, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New cap', new_cap_path %>

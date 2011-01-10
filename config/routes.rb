@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :caps
+
   map.resources :events
 
   map.feedback 'feedbacks', :controller => 'feedbacks', :action => 'create'
@@ -10,6 +12,10 @@ ActionController::Routing::Routes.draw do |map|
   map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil
   map.forgot_password '/forgot_password', :controller => 'users', :action => 'forgot_password'
   map.reset_password '/reset_password/:id', :controller => 'users', :action => 'reset_password'
+
+  #验证码
+  map.simple_captcha '/simple_captcha/:action', :controller => 'simple_captcha'
+
 
 
   map.resources :users

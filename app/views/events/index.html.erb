@@ -1,7 +1,7 @@
 <h1>Listing events</h1>
 
 <table>
-<% @records.each do |event| %>
+<% @events.each do |event| %>
   <ul>
     <h3><%=h event.title %></h3>
     <li>发布于<%=h event.due_date_at %></li>

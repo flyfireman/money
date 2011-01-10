@@ -4,7 +4,9 @@ class User < ActiveRecord::Base
   include Authentication
   include Authentication::ByPassword
   include Authentication::ByCookieToken
-
+ 
+  
+  apply_simple_captcha :message => "image and text were different", :add_to_base => true
   validates_presence_of     :login
   validates_length_of       :login,    :within => 3..40
   validates_uniqueness_of   :login
@@ -22,6 +24,7 @@ class User < ActiveRecord::Base
   has_many :events
   before_create :make_activation_code 
 
+  
   # HACK HACK HACK -- how to do attr_accessible from here?
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.

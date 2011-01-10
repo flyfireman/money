@@ -1,27 +1,27 @@
 <p>
   <b>Title:</b>
-  <%=h @record.title %>
+  <%=h @event.title %>
 </p>
 
 <p>
   <b>Description:</b>
-  <%= @record.description %>
+  <%= @event.description %>
 </p>
 
 <p>
   <b>Done:</b>
-  <%=h @record.done %>
+  <%=h @event.done %>
 </p>
 
 <p>
   <b>Due date at:</b>
-  <%=h @record.due_date_at %>
+  <%=h @event.due_date_at %>
 </p>
 
 
 
 
-<%= link_to 'Edit', edit_event_path(@record) %> |
+<%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
 <script type="text/javascript">
   fix_image_size($$('div#news_body img'), 700);

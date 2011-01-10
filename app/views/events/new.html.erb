@@ -1,6 +1,6 @@
 <h1>New event</h1>
 
-<% form_for(@record) do |f| %>
+<% form_for(@event) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -18,6 +18,10 @@
   <p>
     <%= f.label :due_date_at %><br />
     <%= f.datetime_select :due_date_at %>
+  </p>
+  
+  <p>
+    <%= show_simple_captcha(:object => 'event') %>
   </p>
 
   <p>

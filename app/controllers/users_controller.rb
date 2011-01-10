@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
   #  include AuthenticatedSystem
+  #   include SimpleCaptcha::ControllerHelpers
+  # include SimpleCaptchaController
   
 
   # render new.rhtml
@@ -11,7 +13,7 @@ class UsersController < ApplicationController
   def create
     logout_keeping_session!
     @user = User.new(params[:user])
-    success =@user &&@user.save
+    success =@user &&@user.save_with_captcha
     if success &&@user.errors.empty?
       #self.current_user = @user
       #redirect_back_or_default('/')
