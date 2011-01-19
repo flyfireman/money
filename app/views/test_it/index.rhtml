@@ -1,0 +1,41 @@
+
+<%#*<script type="text/javascript" src="/javascripts/swfobject.js"></script>%>
+<%#= @graph %>
+
+<script src="/javascripts/jquery-1.3.2.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="/javascripts/swfobject.js"></script>
+
+<script type="text/javascript">
+
+OFC = {};
+
+OFC.jquery = {
+    name: "jQuery",
+    version: function(src) { return $('#'+ src)[0].get_version() },
+    rasterize: function (src, dst) { $('#'+ dst).replaceWith(OFC.jquery.image(src)) },
+    image: function(src) { return "<img src='data:image/png;base64," + $('#'+src)[0].get_img_binary() + "' />"},
+    popup: function(src) {
+        var img_win = window.open('', 'Charts: Export as Image')
+        with(img_win.document) {
+            write('<html><head><title>Charts: Export as Image</title></head><body>' + OFC.jquery.image(src) + '</body></html>') }
+        // stop the 'loading...' message
+        img_win.document.close();
+     }
+}
+
+if (typeof(Control == "undefined")) {var Control = {OFC: OFC.jquery}}
+
+function save_image() { OFC.jquery.popup('my_chart') }
+function moo() { alert(99); };
+</script>
+<object width="550" height="250" type="application/x-shockwave-flash"
+    data="/open-flash-chart.swf" id="my_chart" style="visibility: visible;">
+    <param name="flashvars" value="data-file=/test_it/graph_code"/><!--生成数据的url-->
+</object>
+<div id="img_chart_1"></div>
+<div style="font-weight: bold;" id="test"> [
+    <input type="BUTTON" value="Show OFC version" onclick="alert(OFC.jquery.version('my_chart'));"/> |
+    <input type="BUTTON" value="Add image in the table" onclick="OFC.jquery.rasterize('my_chart', 'img_chart_1')"/> |
+    <input type="BUTTON" value="Open in other window" onclick="OFC.jquery.popup('my_chart')"/> |
+    <input type="BUTTON" value="Replace Flash component by image" onclick="OFC.jquery.rasterize('my_chart', 'my_chart');"/> ]
+</div>

@@ -44,10 +44,12 @@ doc\:guides=Generate Rails guides
 doc\:plugins=Generate documentation for all installed plugins
 doc\:plugins\:acts_as_paranoid=Generate documentation for the acts_as_paranoid plugin
 doc\:plugins\:acts_as_taggable_on_steroids=Generate documentation for the acts_as_taggable_on_steroids plugin
+doc\:plugins\:city_helper=Generate documentation for the city_helper plugin
 doc\:plugins\:exception_notification=Generate documentation for the exception_notification plugin
 doc\:plugins\:feedback=Generate documentation for the feedback plugin
 doc\:plugins\:jrails=Generate documentation for the jrails plugin
 doc\:plugins\:restful-authentication=Generate documentation for the restful-authentication plugin
+doc\:plugins\:simple_captcha=Generate documentation for the simple_captcha plugin
 doc\:plugins\:tiny_mce=Generate documentation for the tiny_mce plugin
 doc\:plugins\:will_paginate=Generate documentation for the will_paginate plugin
 doc\:rails=Build the RDOC HTML Files
@@ -84,6 +86,8 @@ rails\:update\:scripts=Add new scripts to the application script/ directory
 rails_env=
 routes=Print out all defined routes in match order, with names. Target specific controller with CONTROLLER=x.
 secret=Generate a crytographically secure secret key. This is typically used to generate a secret for cookie sessions.
+simple_captcha\:setup=Set up the plugin SimpleCaptcha for rails >= 2.0
+simple_captcha\:setup_old=Set up the plugin SimpleCaptcha for rails < 2.0
 stats=Report code statistics (KLOCs, etc) from the application
 test=Run all unit, functional and integration tests
 test\:benchmark=Run tests for benchmarkdb:test:prepare / Benchmark the performance tests

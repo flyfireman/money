@@ -4,22 +4,29 @@
 
 <%= error_messages_for :user %>
 <% form_for :user, :url => users_path do |f| -%>
-<p><%= label_tag 'login' %><br/>
-<%= f.text_field :login %></p>
+  <p><%= label_tag 'login' %><br/>
+    <%= f.text_field :login %></p>
 
-<p><%= label_tag 'email' %><br/>
-<%= f.text_field :email %></p>
+  <p><%= label_tag 'email' %><br/>
+    <%= f.text_field :email %></p>
 
-<p><%= label_tag 'password' %><br/>
-<%= f.password_field :password %></p>
+  <p><%= label_tag 'password' %><br/>
+    <%= f.password_field :password %></p>
 
-<p><%= label_tag 'password_confirmation', 'Confirm Password' %><br/>
-<%= f.password_field :password_confirmation %></p>
+  <p><%= label_tag 'password_confirmation', 'Confirm Password' %><br/>
+    <%= f.password_field :password_confirmation %></p>
 
-<p>验证码</p>
-<%#= show_simple_captcha(:object => "user") %>
-<%= show_simple_captcha(:object => 'user', :code_type => 'numeric', :image_style => 'all_black', :distortion => 'low',:label => "(请正确输入图片中的数字?)") %>
+  <p>验证码</p>
+  <%#= show_simple_captcha(:object => "user") %>
+  <%= show_simple_captcha(:object => 'user', :code_type => 'numeric', :image_style => 'all_black', :distortion => 'low',:label => "(请正确输入图片中的数字?)") %>
 
-
-<p><%= submit_tag 'Sign up' %></p>
+  <%= country_select(:user, :country,
+    :only => [:china, :japan, :united_states],
+    :update => 'state') %>
+  <%= state_select(:user, :state,
+    :country => :china,
+    :countries => [:china, :japan, :united_states],
+    :update => 'city')%>
+  <%#=  city_select(:user, :city, :country => :china, :state => :beijing) %>
+  <p><%= submit_tag 'Sign up' %></p>
 <% end -%>
