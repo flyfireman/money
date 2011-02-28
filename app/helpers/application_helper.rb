@@ -9,5 +9,8 @@ module ApplicationHelper
   end
 
   alias_method_chain :will_paginate, :i18n
-
+  #year_after_year
+  def current_year
+    Time.now.strftime('%Y')
+  end
 end

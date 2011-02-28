@@ -1,0 +1,27 @@
+<%
+render_tabnav :tabnav do
+  #controller_names.each do |name|
+    add_tab do |t|
+      t.named "Home"
+      t.links_to :controller => "home", :action => "index"
+    end
+    #=========#
+     add_tab do |t|
+      t.named "Cap"
+      t.links_to :controller => "caps", :action => "index"
+    end
+    #=========#
+      add_tab do |t|
+      t.named "Entries"
+      t.links_to :controller => "entries", :action => "index"
+    end
+    #=========#
+      add_tab do |t|
+      t.named "Events"
+      t.links_to :controller => "events", :action => "index"
+    end
+    #=========#
+ 
+  #end
+end
+%>

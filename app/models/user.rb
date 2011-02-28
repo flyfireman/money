@@ -22,6 +22,10 @@ class User < ActiveRecord::Base
 
   has_many :entries, :dependent => :destroy
   has_many :events
+  
+  #    :after_add => :say_hello,
+  #    :before_remove => :say_goodbye
+
   before_create :make_activation_code 
 
   
@@ -100,6 +104,22 @@ class User < ActiveRecord::Base
   def make_password_reset_code
     self.password_reset_code = Digest::SHA1.hexdigest( Time.now.to_s.split(//).sort_by {rand}.join )
   end
+
+  #say_method
+  #  private
+  #
+  #  def say_hello(event)
+  #    STDOUT.write("hello #{event.title} ")
+  #  end
+  #
+  #  def say_goodbye(event)
+  #    STDOUT.write("goodbye #{event.title} ")
+  #  end
+#  class Fixnum
+#    def prime?
+#      ('1' * self) !~ /^1?$|^(11+?)\1+$/
+#    end
+#  end
 
 
 end

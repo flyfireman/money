@@ -48,6 +48,7 @@ doc\:plugins\:city_helper=Generate documentation for the city_helper plugin
 doc\:plugins\:exception_notification=Generate documentation for the exception_notification plugin
 doc\:plugins\:feedback=Generate documentation for the feedback plugin
 doc\:plugins\:jrails=Generate documentation for the jrails plugin
+doc\:plugins\:open_flash_chart=Generate documentation for the open_flash_chart plugin
 doc\:plugins\:restful-authentication=Generate documentation for the restful-authentication plugin
 doc\:plugins\:simple_captcha=Generate documentation for the simple_captcha plugin
 doc\:plugins\:tiny_mce=Generate documentation for the tiny_mce plugin

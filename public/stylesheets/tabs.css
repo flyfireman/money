@@ -1,0 +1,44 @@
+.tabnav {
+  background-color: #fff;
+  padding: 5px;
+  height: 2em;
+  font-size: 10pt;
+}
+
+.tabnav ul {
+  height: 2em;
+  margin: 0;
+  padding: 0;
+}
+
+.tabnav li {
+  display: inline;
+  line-height: 1.167em;
+  padding: 0;
+}
+
+.tabnav li a {
+  background: #5ec998;
+  color: #ebebeb;
+  text-decoration: none;
+  border: 0.083em solid #fff;
+  border-bottom: 0.083em solid #5ec998;
+  padding: 0.5em 0.667em 0.417em 0.5em;
+  float: left;
+}
+
+.tabnav li a.active {
+  color: #ebebeb;
+  font-weight: bold;
+  background: #004000;
+  border: 0.083em solid #fff;
+  border-bottom: 0.083em solid #004000;
+}
+
+.tabnav li a:hover {
+  color: #004000;
+}
+
+.tabnav li a.active:hover {
+  color: #ebebeb;
+}

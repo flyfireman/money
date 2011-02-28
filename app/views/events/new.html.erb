@@ -17,7 +17,7 @@
   </p>
   <p>
     <%= f.label :due_date_at %><br />
-    <%= f.datetime_select :due_date_at %>
+    <%= f.datetime_select("due_date_at", :start_year => 1940, :end_year => Date.current.year) %>
   </p>
   
   <p>
